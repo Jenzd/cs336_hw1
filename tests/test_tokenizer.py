@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import json
 import os
-import resource
+import sys
+
+if sys.platform.startswith("linux"):
+    import resource
 import sys
 
 import psutil
