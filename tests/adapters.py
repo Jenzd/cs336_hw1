@@ -589,4 +589,15 @@ def run_train_bpe(
                 representing that <token1> was merged with <token2>.
                 Merges are ordered by order of creation.
     """
+    # Read the input file as bytes
+    with open(input_path, "rb") as f:
+        data = f.read()
+
+    # If you need to process as text, decode and re-encode as bytes per word
+    # Example: split into words and convert each to bytes
+    words = data.decode("utf-8", errors="ignore").split()
+    word_bytes = [w.encode("utf-8") for w in words]
+
+    # If you need to handle special tokens as bytes
+    special_token_bytes = [tok.encode("utf-8") for tok in special_tokens]
     raise NotImplementedError
